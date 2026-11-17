@@ -31,13 +31,37 @@ class _SearchScreenState extends State<SearchScreen> {
                 borderRadius: BorderRadius.circular(5),
                 color: Colors.deepPurple[50],
               ),
-              child: const TextField(
+              child: TextField(
+                controller: _searchController,
                 autofocus: false,
                 //TODO : 6 implementasi fitur pencarian
+                onChanged: (String value) {
+                  setState(() {
+                    _searchQuery = value;
+                    _filteredCandis = candiList
+                        .where(
+                          (Candi candi) => candi.name.toLowerCase().contains(
+                            _searchQuery.toLowerCase(),
+                          ),
+                        )
+                        .toList();
+                  });
+                },
                 decoration: InputDecoration(
                   hintText: 'Cari Candi ...',
                   prefixIcon: Icon(Icons.search),
                   // TODO : 7 implementasi pengosong input
+                  suffixIcon: _searchQuery.isNotEmpty ? IconButton(
+                    icon: const Icon(Icons.clear),
+                    onPressed: (){
+                      setState((){
+                        _searchController.clear();
+                        _searchQuery = '';
+                        _filteredCandis = candiList;
+                      });
+                    },
+                  )
+                  : null,
                   border: InputBorder.none,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(color: Colors.deepPurple),
