@@ -10,8 +10,8 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   // TODO 1 : Deklarasi Varibel yang dibutuhkan
   bool isSignedIn = false;
-  String fullName = 'Nur Rachmat';
-  String userName = 'nurrachmat'; 
+  String fullName = 'Hutama Putera';
+  String userName = 'Hutama';
   int favoriteCandiCount = 0;
 
   //TODO 5: implementasi fungsi signIn

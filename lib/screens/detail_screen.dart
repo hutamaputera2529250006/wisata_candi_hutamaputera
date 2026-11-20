@@ -19,13 +19,16 @@ class DetailScreen extends StatelessWidget {
                 // image utama
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 8.0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(8.0),
-                    child: Image.asset(
-                      candi.imageAsset,
-                      width: double.infinity,
-                      height: 300,
-                      fit: BoxFit.cover,
+                  child: Hero(
+                    tag: candi.imageAsset,
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(8.0),
+                      child: Image.asset(
+                        candi.imageAsset,
+                        width: double.infinity,
+                        height: 300,
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                 ),
